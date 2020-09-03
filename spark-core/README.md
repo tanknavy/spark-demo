@@ -1,0 +1,1 @@
+RDD(Resilient Distributed Dataset):弹性分布式数据集，抽象类，代表一个弹性，不可变，可分区，其中元素可并行计算的集合
