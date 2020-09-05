@@ -13,6 +13,7 @@
         <module name="spark-streaming2" />
         <module name="kafka" />
         <module name="spark-streaming" />
+        <module name="arvo" />
         <module name="spark-sql" />
         <module name="spark-core" />
         <module name="elasticsearch" />

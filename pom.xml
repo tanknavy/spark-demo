@@ -19,6 +19,7 @@
         <module>elasticsearch</module>
         <module>mongodb</module>
         <module>cassandra</module>
+        <module>arvo</module>
     </modules>
 
 
