@@ -4,7 +4,7 @@ package com.tanknavy.high_function
  * Author: Alex Cheng 9/13/2020 12:46 AM
  */
 
-object AbstractControl {
+object ControlAbstract {
   def main(args: Array[String]): Unit = {
     //runThread就是一个抽象空值
     //接受参数没有输入，也没有输出，f:()=>Unit

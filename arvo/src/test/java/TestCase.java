@@ -33,11 +33,11 @@ public class TestCase {
 
     @Test
     public void testRefer() {
-        int a = 10;
+        int a = 2020;
         int b = a;
         //System.out.println(a + ":" + b);//相等
         a = 20;
-        System.out.println(a + ":" + b);//基本类型，不相等
+        System.out.println("number type:" +a + ":" + b);//基本类型，不相等
 
         List<String> ar1 = new ArrayList<>();
         ar1.add("hello");
@@ -47,9 +47,15 @@ public class TestCase {
 
         String c = "hello";
         String d = c;
-        //System.out.println(c + ":" + d);//相等
-        c = "java";
-        System.out.println(c + ":" + d);//字符串基本类型，不相等
+        String cc = "hello";
+        System.out.println(c == cc);
+        System.out.println(c == d);
+        System.out.println("string eq with ==:" + Boolean.toString(c == cc));//相等
+        System.out.println("string eq with ==:" + Boolean.toString(c == d));//相等
+        System.out.println("string eq with equals: " + c.equals(d));//相等
+        c = "java"; //注意：字符串是引用类型，但是这里是按照值引用
+        System.out.println(c == d);
+        System.out.println("string type:" + c + ":" + d);//字符串基本类型，不相等
 
         int[] aa = {1,2,3};
         int[] bb = aa;
