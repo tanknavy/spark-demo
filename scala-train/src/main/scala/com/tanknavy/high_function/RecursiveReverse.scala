@@ -10,6 +10,10 @@ object RecursiveReverse {
     println(myReverse(ss))
     val num = 5
     println(factorial(num))
+    println("--------------------")
+    println(charMulti("hello"))
+    println(charMulti2("hello"))
+
   }
 
   //递归套路三部曲，
@@ -37,6 +41,21 @@ object RecursiveReverse {
     }else return sum
   }
 
+  //字符串逐个字符的unicode的乘积
+  def charMulti(s: String):Long ={
+    if (s.length == 1) return s.charAt(0).toLong //返回字符串第一个字符的代码
+    else s.take(1).charAt(0).toLong * charMulti(s.drop(1)) //take(n),drop(n)
+    //else s.head.toLong * charMulti(s.tail) //head,tail //head, drop
+  }
+
+  //计算x**n, x的n次方， n有正和负
+  def mi(x:Double, n:Int):Double ={
+    if(n==0) 1
+    else if (n>0) x * mi(x, n-1)
+    else 1 / mi(x, -n) //负的转正
+  }
+
+  //列表中最大值
   //list = List(1,2,3),list.head返回1，list.trail返回(2,3)
   def myMax(list: List[Int]): Int = {
     if (list.isEmpty) //为空抛出异常

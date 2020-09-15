@@ -36,7 +36,8 @@ object RecursiveFbn {
     }
 
     def fbn2(n:Int):Int= {
-      var a=0; var b=1; //设计好的起始值
+      //var a=0; var b=1; //设计好的起始值
+      var (a,b) = (0,1) //scala多个同时赋值
       //for (int i: list) //java的for-each loop
       for (i <- 0 until n){ //scala的for-each loop
         count4 += 1
