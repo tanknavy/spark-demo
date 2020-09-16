@@ -60,6 +60,10 @@ object ClassDemo {
     var age:Int = _ //默认为0
     var name: String =  null //如果初识赋值为null, name一定要写类型，否则类型推断为Null!
     var address:String = ""//
+
+    def cal(n1:Int, n2:Int): Int ={ //类方法
+      return n1 + n2
+    }
   }
 
   class A{

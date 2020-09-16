@@ -12,7 +12,7 @@ object RecursiveReverse {
     println(factorial(num))
     println("--------------------")
     println(charMulti("hello"))
-    println(charMulti2("hello"))
+    //println(charMulti2("hello"))
 
   }
 
