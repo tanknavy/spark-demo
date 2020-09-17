@@ -15,7 +15,7 @@ public class PackageObject {
 
         System.out.println("--------------");
         Package$$ sp = new Package$$();
-        sp.name();
+        System.out.println(sp.name());
         sp.sayHi();
     }
 }
@@ -26,6 +26,8 @@ public class PackageObject {
 final class Package$${
     //定义属性，包括今天对象module$
     public static final Package$$ module$; //怎么初始化?
+    //public static final Package$$ module$ = new Package$$(); //怎么初始化?
+
     private String name = "king"; //模拟scala包对象中的属性
 
     public Package$$() {

@@ -65,14 +65,17 @@ object ConstructorDemo {
 //先父类构造器->主类构造器->辅助构造器
 class A {
   println("A constructor executed") //主构造器会执行类中所有定义的语句(除掉其它方法)
+  def methodA(): Unit ={
+    println("A method")
+  }
 }
 
-class B extends A{ //默认构造器可以不写()
+class B extends A{ //默认构造器可以不写(),extends A会导致子类先执行父类对应的构造器(无参、有参)
   var id: Int = _
   println("B main consturctor")//主构造器会执行类中所有定义的语句(除掉其它方法)
 
   def this(name:String){//辅助构造器
-    //super() //辅助构造器不支持直接调用父类主构造器！
+    //super() //辅助构造器不支持直接调用父类主构造器！但是可以调用其它方法
     this //必须先调用A的主构造器(直接或间接)，主构造器中又会执行父类的主构造器
     println("call B this(name:String)")
   }
