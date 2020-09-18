@@ -9,6 +9,7 @@ public class FieldOverride {
     public static void main(String[] args) {
         MySub mySub = new MySub();
         System.out.println(mySub.s);
+        System.out.println(mySub.id);//java中字段会自动初始化，scala中要求显式初始化，或者写成abstract类
 
         MySuper mysub2 = new MySub();
         System.out.println(mysub2.s);
@@ -22,4 +23,5 @@ class MySuper{
 
 class MySub extends MySuper{
     String s = "sub";
+    int id;
 }

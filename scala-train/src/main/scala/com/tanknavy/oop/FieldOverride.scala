@@ -33,6 +33,23 @@ class Super2{
 class Sub2 extends Super2{ //override的必须是val不可变字段！！
   //override var name:String = "sub"//scala中必须override复写父类字段
   override val name:String = "sub"//scala中必须override复写父类字段
-  //重写方法
+  //重写父类方法，使用val修饰
   override val sal:Int = 19 //看起来好像是变量重写了父类方法，实际是可以的！
+}
+
+
+abstract class A2{
+  //1.抽象字段(属性)，就是没有初始化的字段，要求类也是抽象类
+  //2.java中字段会自动初始化，scala中要求显式初始化，或者写成abstract类
+  //3.对于抽象的属性，在底层不会生成对应的属性声明，而是生成两个对象的抽象方法(name, name_$eq)
+  var name:String //抽象字段(属性)，就是没有初始化的字段
+  val age:Int = 10
+}
+
+class SubA extends A2{
+  //1.子类重写父类的抽象属性，本质是实现了抽象方法！！
+  //2.这个override可以写也可以不写，本质是方法的实现！
+  var name: String = "subA" //override可写可不写
+  override val age:Int = 20
+
 }
