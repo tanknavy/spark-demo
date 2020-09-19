@@ -4,6 +4,13 @@
  * Author: Alex Cheng 9/15/2020 4:56 PM
  */
 
+//导引入的细节和原则
+import scala.beans._  //_表示将包所有内容引入，等价*
+import scala.collection.mutable.{HashMap, HashSet} //包选择器
+import java.util.{HashMap => JavaHashMap, List} //包重命名
+import java.util.{LinkedList=>_, _} //导入包下面所有内容，第一个_表示隐藏，第二个_表示其它内容
+
+
 //scala中pacakge可以分开写，并且package中可以创建package,class,object/trait
 //包名和类名可以不一致，编译时编译器会自动放入相对的包路径下面
 

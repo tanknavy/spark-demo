@@ -5,7 +5,7 @@ package com.tanknavy.collection_java;
  */
 public class ArrayTest {
     public static void main(String[] args) {
-        Object[] objects = new Object[6];
+        Object[] objects = new Object[6]; //如果想不同类型数据
         objects[0] = 1;
         objects[1] = 3.14;
         objects[2] = true;

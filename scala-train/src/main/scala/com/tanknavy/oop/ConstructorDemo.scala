@@ -35,6 +35,12 @@ object ConstructorDemo {
     w4.getName //@BeanProperty自动生成
     w4.setName("jack")
 
+    println("------------主构造函数私有化------")
+    //val w5 = new Worker5 //class Worker5 private()
+    val w5 = new Worker5("Bob")
+    println(w5.name)
+
+
   }
 
   //Scala构造器, 主构造器和辅助构造器
@@ -109,4 +115,16 @@ class Worker3(var inName:String){//inName属性私有，可读写
 
 class Worker4{ //为了和java bean setter/getter互操作，框架
   @BeanProperty var name: String = null//自动生成getter/setter
+}
+
+
+class Worker5 private (){//inName属性私有，可读写, 构造函数私有化
+  var name = "adm"
+  println("worker5 main constructor")
+
+  def this(inName: String){
+    this //必须先调用主构造器
+    this.name = inName
+    println("构造函数私有化,调用的辅助构造函数")
+  }
 }
