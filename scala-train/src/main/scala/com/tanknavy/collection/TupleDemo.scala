@@ -6,6 +6,7 @@ package com.tanknavy.collection
 
 object TupleDemo {
   def main(args: Array[String]): Unit = {
+    //为了将多个无关数据封装为一个整体，对数据没有过多的约束，使用()产生Tuple2,Map中每个元素就是Tuple2
     //为了高效操作元素，编译器根据元素的个数不同，对应Tuple1,Tuple2,...Tuple22
     val t1 = (1,2,3,"hello", 3.14,'A')
     println(t1)
