@@ -5,6 +5,7 @@ package com.tanknavy.demo;
  */
 public class StaticInit2 {
 
+    //class无论被new了几个对象，其中的static{}静态代码块只会被执行一次
     public static void main(String[] args) {
         Runnable r  = () ->{ //lambda表达式，因为Runnable接口中只有一个方法需要重写(此时要重写的方法名可以省略)
             System.out.println(Thread.currentThread().getName()+ "启动线程");

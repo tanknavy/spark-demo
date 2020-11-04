@@ -4,7 +4,7 @@ package com.tanknavy.demo;
  * Author: Alex Cheng 6/14/2020 12:15 PM
  */
 public class StaticInit {
-    private static int a = 10;
+    private static int a = 10; //类的static字段和静态代码块的执行顺序
     static { //静态代码块
         a = 11;
         b = 21;

@@ -8,11 +8,11 @@ class SingleInstance private (){
 }
 
 //懒汉式
-object SingleInstance{
+object SingleInstance{ //伴生对象，包含该类的static属性和方法
   private var s: SingleInstance = null
   def getInstance(): Unit = {
     if(s == null){
-      s = new SingleInstance
+      s = new SingleInstance //严谨一点加同步锁，里面再判断一次
     }
     s //返回该单例
   }
