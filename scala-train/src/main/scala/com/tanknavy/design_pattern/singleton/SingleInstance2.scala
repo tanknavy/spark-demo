@@ -30,6 +30,20 @@ object SingleInstance3 {
   }
 }
 
+//JDBC单例化？封装一个简单的内部数据库连接池
+//private static JDBCHelper instance = null; //自身的实例
+//
+//public static JDBCHelper getInstance(){
+//  if (instance == null){
+//    synchronized(JDBCHelper.class){
+//      if (instance == null){
+//        instance = new JDBCHelper(); //保证在整个程序运行中，只会创建一次实例
+//      }
+//    }
+//  }
+//return instance;
+//}
+
 //大厂使用的双端检测
 //将该类的构造方法设定为私有
 class SingleInstance4 private() {}

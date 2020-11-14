@@ -8,16 +8,16 @@
         <outputRelativeToContentRoot value="true" />
         <module name="hbase" />
         <module name="sparkcore" />
-        <module name="elasticsearch" />
         <module name="cassandra" />
         <module name="mongodb" />
         <module name="spark-streaming2" />
         <module name="kafka" />
         <module name="scala-train" />
         <module name="spark-streaming" />
+        <module name="arvo" />
         <module name="spark-sql" />
         <module name="spark-core" />
-        <module name="arvo" />
+        <module name="elasticsearch" />
       </profile>
     </annotationProcessing>
   </component>
