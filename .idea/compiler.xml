@@ -6,18 +6,21 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="hbase" />
         <module name="sparkcore" />
-        <module name="cassandra" />
-        <module name="mongodb" />
-        <module name="spark-streaming2" />
+        <module name="spark-core" />
         <module name="kafka" />
         <module name="scala-train" />
+        <module name="spark-streaming2" />
         <module name="spark-streaming" />
-        <module name="arvo" />
-        <module name="spark-sql" />
-        <module name="spark-core" />
         <module name="elasticsearch" />
+        <module name="kafka-consumer-elasticsearch" />
+        <module name="arvo" />
+        <module name="kafka-producer-twitter" />
+        <module name="kafka-basics" />
+        <module name="spark-sql" />
+        <module name="hbase" />
+        <module name="mongodb" />
+        <module name="cassandra" />
       </profile>
     </annotationProcessing>
   </component>

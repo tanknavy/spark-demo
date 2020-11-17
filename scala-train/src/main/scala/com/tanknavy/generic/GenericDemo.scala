@@ -4,7 +4,12 @@ package com.tanknavy.generic
  * Author: Alex Cheng 9/20/2020 9:15 PM
  */
 
-//scala泛型
+//scala泛型, 希望函数参数可以接受任意类型
+//java泛型实现时擦拭法(type erase),虚拟机代码执行并没有泛型，泛型是由编译器在编译时实行的
+//编译器永远把T视为Object处理，但在需要转型时，会根据T的类型自动安全的强制转型
+//java泛型的局限
+//1.<T>不能是基本类型，应为Object类型无法持有基本类型
+//2.对于泛型实例，无论T的类型,getClass()返回同一个Class实例，因为编译后全部都是MyClass<Object>
 object GenericDemo {
   def main(args: Array[String]): Unit = {
 
