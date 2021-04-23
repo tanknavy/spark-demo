@@ -44,3 +44,7 @@ abstract class MySQL{}
 abstract class MySQL2{
   def say()
 }
+
+trait Tr02
+
+trait Tr03{}

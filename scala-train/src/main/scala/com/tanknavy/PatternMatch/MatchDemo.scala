@@ -12,7 +12,7 @@ object MatchDemo {
     val n2 = 5
     var res = 0
     println("1.----------match case 字符匹配----------- ")
-    //java使用switch，不需要break
+    //java使用switch，scala不需要break
     //从上到下
     //switch(oper){} //java的switch
     oper match{ //可以支持其它类型(不仅仅是字符)，字符串是另外一种匹配模式

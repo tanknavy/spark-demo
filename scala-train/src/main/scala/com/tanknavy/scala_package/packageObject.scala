@@ -10,7 +10,7 @@ package bag {
 
   object packageTest {
     def main(args: Array[String]): Unit = {
-      println("")
+      println("packageTest")
     }
   }
 

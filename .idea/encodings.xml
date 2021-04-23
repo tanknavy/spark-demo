@@ -7,6 +7,9 @@
     <file url="file://$PROJECT_DIR$/elasticsearch" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hbase" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/kafka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kafka-basics" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kafka-consumer-elasticsearch" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kafka-producer-twitter" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mongodb" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/scala-train" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spark-core" charset="UTF-8" />
