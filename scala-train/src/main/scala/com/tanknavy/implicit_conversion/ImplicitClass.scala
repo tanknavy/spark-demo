@@ -9,7 +9,7 @@ object ImplicitClass {
 
     //隐式类，在作用域范围呢，当创建MySQL实例时就会生效
     //编译器中 DB(mysql).addSuffix()
-    implicit class DB2(val m: MySQL){ //主构造器必须只有一个形参, 给类增加新方法而不改变类的结构
+    implicit class DB2(val m: MySQL){ //主构造器必须只有一个形参, 给类增加新方法而不改变类的结构，隐式类构造函数只能有一个参数
       def addSuffix(): String ={
         m.getClass.getSimpleName + "scala"
       }

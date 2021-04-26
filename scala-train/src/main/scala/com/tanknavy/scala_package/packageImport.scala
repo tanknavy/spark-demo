@@ -34,7 +34,7 @@ package com.tanknavy.scala_package{
 
         import com.tanknavy.scala_package.myPack
         val customer = new Customer
-
+        customer.name
 
       }
     }
@@ -50,14 +50,14 @@ package com.tanknavy.scala_package{
   package object myPack { //同名包的包对象
     var name_in_pacakge = "king"
     def sayHi(): Unit ={
-      println("package object say hi")
+      println("package object myPack say hi")
     }
   }
 
   package myPack{ //创建包
     class Customer{
-      var id: Int = _
-      var name: String = _
+      var id: Int = _ //_表示赋予相应的默认值， Int的是0
+      var name: String = _ //String的默认值是null
       println("Customer call package object: " + name_in_pacakge) //同包范围内直接调用
       sayHi() //同包范围内直接调用
     }

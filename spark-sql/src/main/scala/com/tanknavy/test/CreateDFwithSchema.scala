@@ -2,7 +2,7 @@ package com.tanknavy.test
 
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.types.{IntegerType, LongType, StringType, StructField, StructType}
-import org.apache.spark.sql.{DataFrame, Row, SparkSession}
+import org.apache.spark.sql.{DataFrame, Dataset, Row, SparkSession}
 
 /**
  * Author: Alex Cheng 7/6/2020 10:19 PM
@@ -22,9 +22,11 @@ object CreateDFwithSchema {
     //导入隐式转换
     import spark.implicits._ //这里spark不是包名，而是SparkSession的名字
 
+    //https://sparkbyexamples.com/apache-spark-rdd/convert-spark-rdd-to-dataframe-dataset/
     //创建DataFrame的第三种方式, 从RDD获得，createDataFrame(rdd, schema)
     //创建RDD
     val rdd: RDD[String] = spark.sparkContext.textFile("C:\\software\\spark-2.3.3-bin-hadoop2.7\\examples\\src\\main\\resources\\people.txt")
+
     rdd.collect().foreach(println)
 
     //DataFrame的是RDD[Row]类型
@@ -41,6 +43,10 @@ object CreateDFwithSchema {
     val structType = StructType(StructField("name",StringType)::StructField("age",IntegerType,nullable = true)::Nil) //类型转换
 
     //创建DataFrame
+    //import spark.implicits._
+    val columnName = Seq("name", "age")
+    //val df1 = spark.createDataFrame(rdd).toDF(columnName:_*) // _*将array炸开成,分隔
+    val ds1: Dataset[String] = spark.createDataset(rdd)
     val df: DataFrame = spark.createDataFrame(rddRow, structType)
 
     //显示数据

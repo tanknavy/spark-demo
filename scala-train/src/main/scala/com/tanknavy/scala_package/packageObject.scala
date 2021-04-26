@@ -11,6 +11,14 @@ package bag {
   object packageTest {
     def main(args: Array[String]): Unit = {
       println("packageTest")
+      thePack.add() //同一文件夹下的包对象thePack
+
+      import com.tanknavy.scala_package.myPack._ //另外一个文件件下
+      val cus = new Customer()
+      println(cus.id)
+      println(cus.name)
+      sayHi()
+
     }
   }
 
@@ -23,7 +31,7 @@ package bag {
     var objectName: String = "bob"
 
     def add(): Unit = {
-      println("package object")
+      println("package object thePack")
     }
   }
 
