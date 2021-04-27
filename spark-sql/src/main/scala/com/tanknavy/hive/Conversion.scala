@@ -1,6 +1,8 @@
 package com.tanknavy.hive
 
+import org.apache.hadoop.hive.ql.exec.UDF
 import org.apache.spark.rdd.RDD
+import org.apache.spark.sql.expressions.UserDefinedFunction
 import org.apache.spark.sql.{DataFrame, Dataset, KeyValueGroupedDataset, SparkSession}
 import org.apache.spark.{SparkConf, SparkContext}
 
@@ -64,6 +66,17 @@ object Conversion {
     println("person compare, first compare lastName, then the num")
     aggRddT2.foreach(println)
     aggRddT3.foreach(p =>println(p))
+
+    //添加随机key的UDF,使用随机分区键
+    import org.apache.spark.sql.functions._ //spark.sql下的udf函数产生UDF
+    val partition_per_hour = 16
+    val appendRandomKey: UserDefinedFunction = udf((hourId: String) => hourId + (Math.random * partition_per_hour).toInt.toString)
+    val appendRandomKey2 = udf{hourId: String => hourId + (Math.random * partition_per_hour).toInt.toString}
+    val df_new: DataFrame = df.withColumn("partition_key", appendRandomKey(col("num"))) //添加分区栏位
+        .repartition(col("partition_key")) //使用分区栏位分区
+        .drop(col("partition_key")) //用完删除分区栏位
+    println("====use random partition key===")
+    df_new.foreach(row =>println(row))
 
     //关闭连接
     //sc.stop()
