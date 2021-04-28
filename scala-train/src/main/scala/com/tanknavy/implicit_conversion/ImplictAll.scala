@@ -13,7 +13,8 @@ object ImplictAll {
   implicit val delimiter: String = ",, "
 
   //2)隐式函数 implicit def 实现隐式转换
-  //3)隐式参数 implicit prefix在函数的arguments中, 隐式参数必须在后面
+  //3)隐式参数 implicit prefix在函数的arguments中, 隐式参数必须在后面,
+  //注：上下文绑定[T: TypeTag]和隐式参数(对象)在隐式函数中(不同输入对象，不同效果)，实现了多态的效果，这里隐式参数可以使用implicitly关键词放到方法中
   implicit def string2Text(content: String)(implicit prefix: Prefix, separator: String) = { //隐式转换+隐式参数，使用对象的属性或者方法
     Text(prefix.text + separator + content)
   }

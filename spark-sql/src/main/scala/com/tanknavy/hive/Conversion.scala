@@ -55,7 +55,7 @@ object Conversion {
     val aggRddT2: RDD[(String, Int)] = rddForTuple2.aggregateByKey(0)(_+_, _+_) //初始值，分区内合并，分区间合并
     val groupRddT3: RDD[(String, Iterable[(String, Int, String)])] = rdd.groupBy(_._1) //使用Tuple3中第一个元素作为key
 
-    //tuple2的格式才能直接ByKey, 默认第一个键，除非先groupBy()
+    //tuple2的格式才能直接ByKey, 默认第一个键，除非先groupBy()，对个元素可用groupBy(col1,col2)
     //对tuple3格式，使用aggregateByKey
     val person:Person = Person("",0,null) //小心null比较
     val aggRddT3 = ds.rdd.map(p =>(p.fname, p)).aggregateByKey(Person("",0,""))((p1,p2) => personMax(Seq(p1,p2)), (p3,p4) =>personMax(Seq(p3,p4)))
