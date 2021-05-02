@@ -1,16 +1,14 @@
-package com.tanknavy.hive
+package com.tanknavy.serder
 
-import org.apache.hadoop.hive.ql.exec.UDF
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.expressions.UserDefinedFunction
 import org.apache.spark.sql.{DataFrame, Dataset, KeyValueGroupedDataset, SparkSession}
-import org.apache.spark.{SparkConf, SparkContext}
 
 /**
  * Author: Alex Cheng 7/2/2020 10:50 PM
  */
 
-object Conversion {
+object KyroSerder {
   def main(args: Array[String]): Unit = {
     //创建SparkConf
 //    val conf = new SparkConf().setAppName("WordCount")
@@ -47,15 +45,16 @@ object Conversion {
 
     val groupDs: KeyValueGroupedDataset[String, Person] = ds.groupByKey(_.fname) //rdd和ds的groupByKey参数含义不一样
     val reduceRs: Dataset[(String, Person)] = groupDs.reduceGroups((p1,p2) => personMaxTwo(p1,p2)) //同一个人名下最大num
+
     reduceRs.foreach(p => println(p._2.fname))
 
     //上述groupByKey改为aggregateByKey,有预聚合功能
     val rddForTuple2 = spark.sparkContext.parallelize(Seq(("aa",1),("bb",2),("cc",3),("dd",4),("aa",2),("bb",3),("cc",4),("dd",5),("aa",6),("cc",7)))
-    //只有Tuple2形式的rdd才可以直接aggregateByKey
+    //只有Tuple2形式的rdd才可以直接aggregateByKey, Tuple3以上使用groupBy, 但是ds的groupByKey对tuple3以上都可以
     val aggRddT2: RDD[(String, Int)] = rddForTuple2.aggregateByKey(0)(_+_, _+_) //初始值，分区内合并，分区间合并
     val groupRddT3: RDD[(String, Iterable[(String, Int, String)])] = rdd.groupBy(_._1) //使用Tuple3中第一个元素作为key
 
-    //tuple2的格式才能直接ByKey, 默认第一个键，除非先groupBy()，对个元素可用groupBy(col1,col2)
+    //tuple2的格式RDD才能直接ByKey, 默认第一个键，除非先groupBy()，对多个元素可用groupBy(col1,col2)
     //对tuple3格式，使用aggregateByKey
     val person:Person = Person("",0,null) //小心null比较
     val aggRddT3 = ds.rdd.map(p =>(p.fname, p)).aggregateByKey(Person("",0,""))((p1,p2) => personMax(Seq(p1,p2)), (p3,p4) =>personMax(Seq(p3,p4)))
