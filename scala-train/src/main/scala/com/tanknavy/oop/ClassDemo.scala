@@ -38,6 +38,14 @@ object ClassDemo {
 
     }
 
+    println("reflect --------------------------------")
+    classOf[Person].getDeclaredFields.foreach{ field => println(field.getName)} //
+    classOf[Person].getDeclaredFields.foreach{ field => field.setAccessible(true); println(field.getName)} //需要访问字段值时
+
+    println(List.apply(classOf[Cat].getDeclaredFields.map(f => f.getName) : _*))
+    classOf[Cat].getDeclaredFields.foreach(f => println(f.getName))
+    println(List.apply(classOf[Cat].getDeclaredFields.map(f => f.getName) : _*).toString())
+
   }
 
   //java里面class属性值可不写， 会自动赋予初始值

@@ -45,7 +45,12 @@ object TestScala2 {
     val properties: Properties = System.getProperties
     println(properties)
 
-  }
+    println("reflect--------------------------")
+    classOf[Person].getDeclaredFields.foreach{ field => field.setAccessible(true); println(field.getName)}
+
+    println(List.apply(classOf[People].getDeclaredFields.map(f => f.getName) : _*))
+    classOf[People].getDeclaredFields.foreach(f => println(f.getName))
+}
 
   def null2BlackString(str: String) :String = {
     if(str == null) "" else str
@@ -77,3 +82,7 @@ object TestScala2 {
 
 
 }
+
+class Person(name:String,years:Int){}
+
+case class People(name:String,years:Int)
